@@ -66,7 +66,19 @@ const MigrateAccountsModal = ({ onClose, handleSetActiveView,  handleSetWallet, 
             state.wallet
         );
         onNext();
-        window.open(url, '_blank');
+
+        switch (url) {
+            case url.includes('Nightly'): {
+                const handle = window.open(url,'_blank', 'width=450, height=550');
+                if (!handle) {
+                    window.open(url, '_blank');
+                } 
+                break;
+            }
+            default:
+                window.open(url, '_blank');
+        }
+
     }, [migrationKey, availableAccounts, wallet]);
 
     useEffect(()=> {

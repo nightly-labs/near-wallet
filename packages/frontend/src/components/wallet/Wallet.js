@@ -1,36 +1,34 @@
-import React from 'react';
-import { Translate } from 'react-localize-redux';
-import { Textfit } from 'react-textfit';
-import styled from 'styled-components';
+import React from "react";
+import { Translate } from "react-localize-redux";
+import { Textfit } from "react-textfit";
+import styled from "styled-components";
 
-import {
-    CREATE_USN_CONTRACT,
-} from '../../../../../features';
-import { isWhitelabel } from '../../config/whitelabel';
-import getCurrentLanguage from '../../hooks/getCurrentLanguage';
-import classNames from '../../utils/classNames';
-import { SHOW_NETWORK_BANNER } from '../../utils/wallet';
-import { getTotalBalanceInFiat } from '../common/balance/helpers';
-import FormButton from '../common/FormButton';
-import RemoveLinkRecoveryBanner from '../common/RemoveLinkRecoveryBanner';
-import Container from '../common/styled/Container.css';
-import Tooltip from '../common/Tooltip';
-import DownArrowIcon from '../svg/DownArrowIcon';
-import SendIcon from '../svg/SendIcon';
-import TopUpIcon from '../svg/TopUpIcon';
-import WrapIcon from '../svg/WrapIcon';
-import ActivitiesWrapper from './ActivitiesWrapper';
-import AllTokensTotalBalanceUSD from './AllTokensTotalBalanceUSD';
-import CreateCustomNameModal from './CreateCustomNameModal';
-import CreateFromImplicitSuccessModal from './CreateFromImplicitSuccessModal';
-import DepositNearBanner from './DepositNearBanner';
-import ExploreApps from './ExploreApps';
-import LinkDropSuccessModal from './LinkDropSuccessModal';
-import NFTs from './NFTs';
-import Sidebar from './Sidebar';
-import SidebarLight from './SidebarLight';
-import Tokens from './Tokens';
-import { ZeroBalanceAccountImportedModal } from './ZeroBalanceAccountImportedModal';
+import { CREATE_USN_CONTRACT } from "../../../../../features";
+import { isWhitelabel } from "../../config/whitelabel";
+import getCurrentLanguage from "../../hooks/getCurrentLanguage";
+import classNames from "../../utils/classNames";
+import { SHOW_NETWORK_BANNER } from "../../utils/wallet";
+import { getTotalBalanceInFiat } from "../common/balance/helpers";
+import FormButton from "../common/FormButton";
+import RemoveLinkRecoveryBanner from "../common/RemoveLinkRecoveryBanner";
+import Container from "../common/styled/Container.css";
+import Tooltip from "../common/Tooltip";
+import DownArrowIcon from "../svg/DownArrowIcon";
+import SendIcon from "../svg/SendIcon";
+import TopUpIcon from "../svg/TopUpIcon";
+import WrapIcon from "../svg/WrapIcon";
+import ActivitiesWrapper from "./ActivitiesWrapper";
+import AllTokensTotalBalanceUSD from "./AllTokensTotalBalanceUSD";
+import CreateCustomNameModal from "./CreateCustomNameModal";
+import CreateFromImplicitSuccessModal from "./CreateFromImplicitSuccessModal";
+import DepositNearBanner from "./DepositNearBanner";
+import ExploreApps from "./ExploreApps";
+import LinkDropSuccessModal from "./LinkDropSuccessModal";
+import NFTs from "./NFTs";
+import Sidebar from "./Sidebar";
+import SidebarLight from "./SidebarLight";
+import Tokens from "./Tokens";
+import { ZeroBalanceAccountImportedModal } from "./ZeroBalanceAccountImportedModal";
 
 const StyledContainer = styled(Container)`
     @media (max-width: 991px) {
@@ -39,9 +37,9 @@ const StyledContainer = styled(Container)`
             margin-top: -15px;
         }
     }
-    
+
     .coingecko {
-        color: #B4B4B4;
+        color: #b4b4b4;
         align-self: end;
         margin: 20px;
         @media (max-width: 991px) {
@@ -280,15 +278,15 @@ const StyledContainer = styled(Container)`
         width: 100%;
         .deposit-near-banner {
             > div {
-                border-top: 1px solid #F0F0F1;
+                border-top: 1px solid #f0f0f1;
                 padding: 20px;
-        
+
                 @media (max-width: 991px) {
                     margin: 0 -14px;
                     padding: 20px 0;
-                    border-bottom: 15px solid #F0F0F1;
+                    border-bottom: 15px solid #f0f0f1;
                 }
-        
+
                 @media (max-width: 767px) {
                     padding: 20px 14px 20px 14px;
                 }
@@ -315,7 +313,7 @@ export function Wallet({
     handleSetCreateFromImplicitSuccess,
     handleSetCreateCustomName,
     handleSetZeroBalanceAccountImportMethod,
-    userRecoveryMethods
+    userRecoveryMethods,
 }) {
     const currentLanguage = getCurrentLanguage();
     const totalAmount = getTotalBalanceInFiat(
@@ -323,39 +321,39 @@ export function Wallet({
         currentLanguage
     );
 
-    const shouldShowRemoveLinkRecoveryBanner = !isWhitelabel && (userRecoveryMethods.some(({ kind }) => kind === 'email')
-        || userRecoveryMethods.some(({ kind }) => kind === 'phone'));
+    const shouldShowRemoveLinkRecoveryBanner =
+        !isWhitelabel &&
+        (userRecoveryMethods.some(({ kind }) => kind === "email") ||
+            userRecoveryMethods.some(({ kind }) => kind === "phone"));
 
     return (
         <StyledContainer
-            className={SHOW_NETWORK_BANNER ? 'showing-banner' : ''}
+            className={SHOW_NETWORK_BANNER ? "showing-banner" : ""}
         >
-            {shouldShowRemoveLinkRecoveryBanner &&
-                <RemoveLinkRecoveryBanner />
-            }
+            {shouldShowRemoveLinkRecoveryBanner && <RemoveLinkRecoveryBanner />}
             <div className="split">
                 <div className="left">
                     <div className="tab-selector">
                         <div
                             className={classNames([
-                                'tab-balances',
-                                tab === 'collectibles' ? 'inactive' : '',
+                                "tab-balances",
+                                tab === "collectibles" ? "inactive" : "",
                             ])}
-                            onClick={() => setTab('')}
+                            onClick={() => setTab("")}
                         >
                             <Translate id="wallet.balances" />
                         </div>
                         <div
                             className={classNames([
-                                'tab-collectibles',
-                                tab !== 'collectibles' ? 'inactive' : '',
+                                "tab-collectibles",
+                                tab !== "collectibles" ? "inactive" : "",
                             ])}
-                            onClick={() => setTab('collectibles')}
+                            onClick={() => setTab("collectibles")}
                         >
                             <Translate id="wallet.collectibles" />
                         </div>
                     </div>
-                    {tab === 'collectibles' ? (
+                    {tab === "collectibles" ? (
                         <NFTs tokens={sortedNFTs} />
                     ) : (
                         <FungibleTokens
@@ -370,16 +368,21 @@ export function Wallet({
                     )}
                 </div>
                 <div className="right">
-                    {isWhitelabel
-                        ? <SidebarLight availableAccounts={accountExists && availableAccounts} />
-                        : accountExists
-                            ? <Sidebar availableAccounts={availableAccounts} />
-                            : <ExploreApps />
-                    }
+                    {isWhitelabel ? (
+                        <SidebarLight
+                            availableAccounts={
+                                accountExists && availableAccounts
+                            }
+                        />
+                    ) : accountExists ? (
+                        <Sidebar availableAccounts={availableAccounts} />
+                    ) : (
+                        <ExploreApps />
+                    )}
                     <ActivitiesWrapper />
                 </div>
             </div>
-            {linkdropAmount !== '0' && (
+            {linkdropAmount !== "0" && (
                 <LinkDropSuccessModal
                     onClose={handleCloseLinkdropModal}
                     linkdropAmount={linkdropAmount}
@@ -417,23 +420,25 @@ const FungibleTokens = ({
     accountExists,
     totalAmount,
     currentLanguage,
-    fungibleTokensList
+    fungibleTokensList,
 }) => {
     const zeroBalanceAccount = accountExists === false;
     const currentFungibleTokens = fungibleTokens[0];
     const hideFungibleTokenSection =
         zeroBalanceAccount &&
         fungibleTokens?.length === 1 &&
-        currentFungibleTokens?.onChainFTMetadata?.symbol === 'NEAR';
+        currentFungibleTokens?.onChainFTMetadata?.symbol === "NEAR";
     return (
         <>
-            <div className='total-balance'>
-                <Textfit mode='single' max={48}>
-                    <AllTokensTotalBalanceUSD allFungibleTokens={fungibleTokensList} />
+            <div className="total-balance">
+                <Textfit mode="single" max={48}>
+                    <AllTokensTotalBalanceUSD
+                        allFungibleTokens={fungibleTokensList}
+                    />
                 </Textfit>
             </div>
             <div className="sub-title balance">
-                <Translate id="wallet.availableBalance" />{' '}
+                <Translate id="wallet.availableBalance" />{" "}
                 <Tooltip translate="availableBalanceInfo" />
             </div>
             <div className="buttons">
@@ -483,7 +488,7 @@ const FungibleTokens = ({
                 </FormButton>
             </div>
             {zeroBalanceAccount && (
-                <div className='deposit-banner-wrapper'>
+                <div className="deposit-banner-wrapper">
                     <DepositNearBanner />
                 </div>
             )}
@@ -503,7 +508,9 @@ const FungibleTokens = ({
                         tokens={fungibleTokens}
                         currentLanguage={currentLanguage}
                     />
-                    <div className='coingecko'><Translate id='poweredByCoinGecko' /></div>
+                    <div className="coingecko">
+                        <Translate id="poweredByCoinGecko" />
+                    </div>
                 </>
             )}
         </>
