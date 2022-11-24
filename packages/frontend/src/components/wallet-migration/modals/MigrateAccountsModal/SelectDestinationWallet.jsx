@@ -93,7 +93,7 @@ export const WALLET_OPTIONS = shuffle([
         id: WALLET_ID.NIGHTLY_WALLET,
         name: 'Nightly Wallet',
         icon: <img src={ImgNightlyWallet} alt="Nightly Wallet Logo" />,
-        getUrl: ({ hash }) => `chrome-extension://jogakccogleajkkbhipeejbfagngknen/src/pages/Nightly/ImportWalletsNear/index.html#${hash}`,
+        getUrl: ({ hash }) => hash,
         checkAvailability: () => true,
         ledgerSupport: false,
     },
