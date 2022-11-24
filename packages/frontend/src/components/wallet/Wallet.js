@@ -1,34 +1,34 @@
-import React from "react";
-import { Translate } from "react-localize-redux";
-import { Textfit } from "react-textfit";
-import styled from "styled-components";
+import React from 'react';
+import { Translate } from 'react-localize-redux';
+import { Textfit } from 'react-textfit';
+import styled from 'styled-components';
 
-import { CREATE_USN_CONTRACT } from "../../../../../features";
-import { isWhitelabel } from "../../config/whitelabel";
-import getCurrentLanguage from "../../hooks/getCurrentLanguage";
-import classNames from "../../utils/classNames";
-import { SHOW_NETWORK_BANNER } from "../../utils/wallet";
-import { getTotalBalanceInFiat } from "../common/balance/helpers";
-import FormButton from "../common/FormButton";
-import RemoveLinkRecoveryBanner from "../common/RemoveLinkRecoveryBanner";
-import Container from "../common/styled/Container.css";
-import Tooltip from "../common/Tooltip";
-import DownArrowIcon from "../svg/DownArrowIcon";
-import SendIcon from "../svg/SendIcon";
-import TopUpIcon from "../svg/TopUpIcon";
-import WrapIcon from "../svg/WrapIcon";
-import ActivitiesWrapper from "./ActivitiesWrapper";
-import AllTokensTotalBalanceUSD from "./AllTokensTotalBalanceUSD";
-import CreateCustomNameModal from "./CreateCustomNameModal";
-import CreateFromImplicitSuccessModal from "./CreateFromImplicitSuccessModal";
-import DepositNearBanner from "./DepositNearBanner";
-import ExploreApps from "./ExploreApps";
-import LinkDropSuccessModal from "./LinkDropSuccessModal";
-import NFTs from "./NFTs";
-import Sidebar from "./Sidebar";
-import SidebarLight from "./SidebarLight";
-import Tokens from "./Tokens";
-import { ZeroBalanceAccountImportedModal } from "./ZeroBalanceAccountImportedModal";
+import { CREATE_USN_CONTRACT } from '../../../../../features';
+import { isWhitelabel } from '../../config/whitelabel';
+import getCurrentLanguage from '../../hooks/getCurrentLanguage';
+import classNames from '../../utils/classNames';
+import { SHOW_NETWORK_BANNER } from '../../utils/wallet';
+import { getTotalBalanceInFiat } from '../common/balance/helpers';
+import FormButton from '../common/FormButton';
+import RemoveLinkRecoveryBanner from '../common/RemoveLinkRecoveryBanner';
+import Container from '../common/styled/Container.css';
+import Tooltip from '../common/Tooltip';
+import DownArrowIcon from '../svg/DownArrowIcon';
+import SendIcon from '../svg/SendIcon';
+import TopUpIcon from '../svg/TopUpIcon';
+import WrapIcon from '../svg/WrapIcon';
+import ActivitiesWrapper from './ActivitiesWrapper';
+import AllTokensTotalBalanceUSD from './AllTokensTotalBalanceUSD';
+import CreateCustomNameModal from './CreateCustomNameModal';
+import CreateFromImplicitSuccessModal from './CreateFromImplicitSuccessModal';
+import DepositNearBanner from './DepositNearBanner';
+import ExploreApps from './ExploreApps';
+import LinkDropSuccessModal from './LinkDropSuccessModal';
+import NFTs from './NFTs';
+import Sidebar from './Sidebar';
+import SidebarLight from './SidebarLight';
+import Tokens from './Tokens';
+import { ZeroBalanceAccountImportedModal } from './ZeroBalanceAccountImportedModal';
 
 const StyledContainer = styled(Container)`
     @media (max-width: 991px) {
@@ -323,12 +323,12 @@ export function Wallet({
 
     const shouldShowRemoveLinkRecoveryBanner =
         !isWhitelabel &&
-        (userRecoveryMethods.some(({ kind }) => kind === "email") ||
-            userRecoveryMethods.some(({ kind }) => kind === "phone"));
+        (userRecoveryMethods.some(({ kind }) => kind === 'email') ||
+            userRecoveryMethods.some(({ kind }) => kind === 'phone'));
 
     return (
         <StyledContainer
-            className={SHOW_NETWORK_BANNER ? "showing-banner" : ""}
+            className={SHOW_NETWORK_BANNER ? 'showing-banner' : ''}
         >
             {shouldShowRemoveLinkRecoveryBanner && <RemoveLinkRecoveryBanner />}
             <div className="split">
@@ -336,24 +336,24 @@ export function Wallet({
                     <div className="tab-selector">
                         <div
                             className={classNames([
-                                "tab-balances",
-                                tab === "collectibles" ? "inactive" : "",
+                                'tab-balances',
+                                tab === 'collectibles' ? 'inactive' : '',
                             ])}
-                            onClick={() => setTab("")}
+                            onClick={() => setTab('')}
                         >
                             <Translate id="wallet.balances" />
                         </div>
                         <div
                             className={classNames([
-                                "tab-collectibles",
-                                tab !== "collectibles" ? "inactive" : "",
+                                'tab-collectibles',
+                                tab !== 'collectibles' ? 'inactive' : '',
                             ])}
-                            onClick={() => setTab("collectibles")}
+                            onClick={() => setTab('collectibles')}
                         >
                             <Translate id="wallet.collectibles" />
                         </div>
                     </div>
-                    {tab === "collectibles" ? (
+                    {tab === 'collectibles' ? (
                         <NFTs tokens={sortedNFTs} />
                     ) : (
                         <FungibleTokens
@@ -382,7 +382,7 @@ export function Wallet({
                     <ActivitiesWrapper />
                 </div>
             </div>
-            {linkdropAmount !== "0" && (
+            {linkdropAmount !== '0' && (
                 <LinkDropSuccessModal
                     onClose={handleCloseLinkdropModal}
                     linkdropAmount={linkdropAmount}
@@ -427,7 +427,7 @@ const FungibleTokens = ({
     const hideFungibleTokenSection =
         zeroBalanceAccount &&
         fungibleTokens?.length === 1 &&
-        currentFungibleTokens?.onChainFTMetadata?.symbol === "NEAR";
+        currentFungibleTokens?.onChainFTMetadata?.symbol === 'NEAR';
     return (
         <>
             <div className="total-balance">
@@ -438,7 +438,7 @@ const FungibleTokens = ({
                 </Textfit>
             </div>
             <div className="sub-title balance">
-                <Translate id="wallet.availableBalance" />{" "}
+                <Translate id="wallet.availableBalance" />{' '}
                 <Tooltip translate="availableBalanceInfo" />
             </div>
             <div className="buttons">
