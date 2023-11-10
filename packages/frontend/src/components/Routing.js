@@ -39,6 +39,7 @@ import { WalletWrapper } from '../routes/WalletWrapper';
 import translations_en from '../translations/en.global.json';
 import translations_it from '../translations/it.global.json';
 import translations_kr from '../translations/kr.global.json';
+import translations_pl from '../translations/pl.global.json';
 import translations_pt from '../translations/pt.global.json';
 import translations_ru from '../translations/ru.global.json';
 import translations_tr from '../translations/tr.global.json';
@@ -209,6 +210,7 @@ class Routing extends Component {
         this.props.addTranslationForLanguage(translations_tr, 'tr');
         this.props.addTranslationForLanguage(translations_ua, 'ua');
         this.props.addTranslationForLanguage(translations_kr, 'kr');
+        this.props.addTranslationForLanguage(translations_pl, 'pl');
 
         this.props.setActiveLanguage(activeLang);
         // this.addTranslationsForActiveLanguage(defaultLanguage)
