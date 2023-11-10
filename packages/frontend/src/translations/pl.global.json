@@ -782,7 +782,7 @@
         }
     },
     "migration": {
-        "message": "Od <b>1 stycznia 2024 roku</b> portfel NEAR zostanie zakończony. Nie będą wprowadzane żadne zmiany w Twoim koncie ani jego aktywach. Skorzystaj ze swojego fraz przywracania lub <a href='/transfer-wizard' target='_blank' rel='noopener noreferrer'>Kreatora Transferu</a>, aby bezpiecznie przenieść się do innego portfela. <a href='https://near.org/blog/embracing-decentralization-whats-next-for-the-near-wallet' target='_blank' rel='noopener noreferrer'><b>Dowiedz się więcej</b></a>",
+        "message": "Od <b>1 stycznia 2024 roku</b> NEAR Wallet zostanie zakończony. Nie będą wprowadzane żadne zmiany w Twoim koncie ani jego aktywach. Skorzystaj ze swoich fraz przywracania lub <a href='/transfer-wizard' target='_blank' rel='noopener noreferrer'>Kreatora Transferu Portfeli</a>, aby bezpiecznie przenieść się do innego portfela. <a href='https://near.org/blog/embracing-decentralization-whats-next-for-the-near-wallet' target='_blank' rel='noopener noreferrer'><b>Dowiedz się więcej</b></a>",
         "redirectCaption": "Dowiedz się więcej",
         "transferCaption": "Przenieś moje konta"
     },
